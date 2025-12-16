@@ -1,0 +1,36 @@
+from flask import Flask,render_template
+
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+    title = 'Home Page'
+    return render_template('index.html',title=title)
+@app.route('/about')
+def about():
+    title = 'About Page'
+    name = 'Thanaphat Ponsang'
+    email = 'std.67122420204@ubru.ac.th'
+    mobile ='0962261872'
+    age = 20
+    return render_template('about.html',title=title,
+                                        name=name,
+                                        email=email,
+                                        mobile=mobile,
+                                        age = age)
+
+@app.route('/favorite/foods')
+def favorite_foods():
+    title = 'Favorite Foods Page'
+    foods = ['ข้าวผัด', 'หมูกระทะ', 'ชาบู']
+    return render_template('favorite_foods.html',
+                            title=title,
+                            foods=foods)
+
+@app.route('/fovorite/sports')
+def favorite_sports():
+    title = 'Favorite Sports Page'
+    sports = ['แบทมินตัน','วอลเลบอล']
+    return render_template('favorite_sports.html',
+                           title=title,
+                           sports=sports)
